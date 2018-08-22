@@ -9,9 +9,9 @@ namespace Pickles.Data
             : base(options)
         { }
 
-        DbSet<PickleType> PickleTypes { get; set; }
-        DbSet<Vote> Votes { get; set; }
-        DbSet<Voter> Voters { get; set; }
+        public DbSet<PickleType> PickleTypes { get; set; }
+        public DbSet<Vote> Votes { get; set; }
+        public DbSet<Voter> Voters { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
