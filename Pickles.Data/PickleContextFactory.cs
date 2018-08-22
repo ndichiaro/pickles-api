@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Design;
 
 namespace Pickles.Data
 {
-    public class PicklesContextFactory : IDesignTimeDbContextFactory<PickleContext>
+    public class PickleContextFactory : IDesignTimeDbContextFactory<PickleContext>
     {
         public PickleContext CreateDbContext(string[] args)
         {
