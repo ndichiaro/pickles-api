@@ -12,5 +12,9 @@ namespace Pickles.Data
         DbSet<PickleType> PickleTypes { get; set; }
         DbSet<Vote> Votes { get; set; }
         DbSet<Voter> Voters { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+        }
     }
 }
