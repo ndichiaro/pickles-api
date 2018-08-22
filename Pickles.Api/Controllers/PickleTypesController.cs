@@ -38,32 +38,18 @@ namespace Pickles.Api.Controllers
             var pickleTypes = _context.PickleTypes.ToList();
             return _mapper.Map<List<PickleTypeApiModel>>(pickleTypes);
         }
-        #endregion
 
-
-        // GET api/values/5
+        /// <summary>
+        /// Gets a pickle type
+        /// </summary>
+        /// <param name="id">the pickle type id</param>
+        /// <returns>a pickle</returns>
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public ActionResult<PickleTypeApiModel> Get(int id)
         {
-            return "value";
+            var pickleType = _context.PickleTypes.FirstOrDefault(x => x.Id == id);
+            return _mapper.Map<PickleTypeApiModel>(pickleType);
         }
-
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        #endregion
     }
 }
