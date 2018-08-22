@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Pickles.Api.Models;
 using Pickles.Data;
-using Pickles.Data.Models;
 
 namespace Pickles.Api.Controllers
 {
