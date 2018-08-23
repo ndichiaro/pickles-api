@@ -12,7 +12,10 @@ namespace Pickles.Api.Models
         public string LastName { get; set; }
         [EmailAddress]
         public string Email { get; set; }
-        public double Latitute { get; set; }
-        public double Longitude { get; set; }
+        [Required]
+        [Range(0, 99999)]
+        public int ZipCode { get; set; }
+        public double? Latitute { get; set; }
+        public double? Longitude { get; set; }
     }
 }
