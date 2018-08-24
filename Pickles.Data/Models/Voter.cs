@@ -9,7 +9,6 @@ namespace Pickles.Data.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        [Column(TypeName = "int(5)")]
         public int ZipCode { get; set; }
         public double? Latitute { get; set; }
         public double? Longitude { get; set; }

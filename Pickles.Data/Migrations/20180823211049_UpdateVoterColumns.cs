@@ -21,7 +21,6 @@ namespace Pickles.Data.Migrations
             migrationBuilder.AddColumn<int>(
                 name: "ZipCode",
                 table: "Voters",
-                type: "int(5)",
                 nullable: false,
                 defaultValue: 0);
         }

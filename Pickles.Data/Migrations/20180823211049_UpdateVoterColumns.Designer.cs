@@ -79,8 +79,7 @@ namespace Pickles.Data.Migrations
 
                     b.Property<double?>("Longitude");
 
-                    b.Property<int>("ZipCode")
-                        .HasColumnType("int(5)");
+                    b.Property<int>("ZipCode");
 
                     b.HasKey("Id");
 
