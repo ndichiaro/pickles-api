@@ -5,6 +5,7 @@ using Pickles.Data;
 using System.Collections.Generic;
 using System.Linq;
 using Pickles.Data.Models;
+using System;
 
 namespace Pickles.Api.Controllers
 {
@@ -30,7 +31,7 @@ namespace Pickles.Api.Controllers
         /// Creates a vote for a pickle type
         /// </summary>
         /// <param name="vote"></param>
-        /// <returns>The newly created vote</returns>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Post([FromBody] VoteApiModel vote)
         {
@@ -39,6 +40,13 @@ namespace Pickles.Api.Controllers
             if (pickleType == null)
             {
                 return BadRequest($"{vote.PickleTypeId} is not a valid pickle type.");
+            }
+
+            // check if the voter is already in the systems
+            var voter = _context.Voters.FirstOrDefault(x => x.Email.Equals(vote.Email, StringComparison.InvariantCultureIgnoreCase));
+            if(voter != null && !string.IsNullOrEmpty(vote.Email))
+            {
+                return Conflict($"The email address {vote.Email} is already associated with a vote.");
             }
 
             var voteDbObj = new Vote
@@ -59,7 +67,7 @@ namespace Pickles.Api.Controllers
 
             using (var transaction = _context.Database.BeginTransaction())
             {
-                // dave the voter
+                // add the voter
                 _context.Voters.Add(voterDbObj);
                 _context.SaveChanges();
 
@@ -72,7 +80,6 @@ namespace Pickles.Api.Controllers
 
                 transaction.Commit();
             }
-
             return Ok();
         }
         #endregion
