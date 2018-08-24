@@ -2,10 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Pickles.Api.Models;
 using Pickles.Data;
-using System.Collections.Generic;
 using System.Linq;
 using Pickles.Data.Models;
 using System;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace Pickles.Api.Controllers
 {
@@ -81,6 +82,36 @@ namespace Pickles.Api.Controllers
                 transaction.Commit();
             }
             return Ok();
+        }
+
+        /// <summary>
+        /// Gets all the votes
+        /// </summary>
+        /// <returns>a list of votes</returns>
+        [HttpGet]
+        public IActionResult Get()
+        {
+            var votes = new List<VoteApiModel>();
+            var votesData = _context.Votes
+                                    .Include(x => x.Voter)
+                                    .Include(x => x.Pickle);
+
+            foreach (var item in votesData)
+            {
+                var vote = new VoteApiModel
+                {
+                    PickleTypeId = item.Pickle.Id,
+                    FirstName = item.Voter.FirstName,
+                    LastName = item.Voter.LastName,
+                    Email = item.Voter.Email,
+                    Latitute = item.Voter.Latitute,
+                    Longitude = item.Voter.Longitude,
+                    ZipCode = item.Voter.ZipCode
+                };
+
+                votes.Add(vote);
+            }
+            return Ok(votes);
         }
         #endregion
     }
