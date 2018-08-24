@@ -59,6 +59,16 @@ namespace Pickles.Api.Controllers
 
             using (var transaction = _context.Database.BeginTransaction())
             {
+                // dave the voter
+                _context.Voters.Add(voterDbObj);
+                _context.SaveChanges();
+
+                // grab the id from the newly saved voter
+                voteDbObj.VoterId = voterDbObj.Id;
+
+                // save the vote
+                _context.Votes.Add(voteDbObj);
+                _context.SaveChanges();
 
                 transaction.Commit();
             }

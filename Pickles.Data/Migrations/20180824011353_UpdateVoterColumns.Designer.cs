@@ -10,7 +10,7 @@ using Pickles.Data;
 namespace Pickles.Data.Migrations
 {
     [DbContext(typeof(PickleContext))]
-    [Migration("20180823211049_UpdateVoterColumns")]
+    [Migration("20180824011353_UpdateVoterColumns")]
     partial class UpdateVoterColumns
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -79,7 +79,7 @@ namespace Pickles.Data.Migrations
 
                     b.Property<double?>("Longitude");
 
-                    b.Property<int>("ZipCode");
+                    b.Property<string>("ZipCode");
 
                     b.HasKey("Id");
 

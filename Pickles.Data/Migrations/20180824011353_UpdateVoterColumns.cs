@@ -18,11 +18,10 @@ namespace Pickles.Data.Migrations
                 nullable: true,
                 oldClrType: typeof(double));
 
-            migrationBuilder.AddColumn<int>(
+            migrationBuilder.AddColumn<string>(
                 name: "ZipCode",
                 table: "Voters",
-                nullable: false,
-                defaultValue: 0);
+                nullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
