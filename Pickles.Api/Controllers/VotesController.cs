@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Pickles.Api.Models;
 using Pickles.Data;
 using System.Linq;
@@ -16,14 +15,12 @@ namespace Pickles.Api.Controllers
     {
         #region Variables
         private readonly PickleContext _context;
-        private readonly IMapper _mapper;
         #endregion
 
         #region Constructors
-        public VotesController(PickleContext context, IMapper mapper)
+        public VotesController(PickleContext context)
         {
             _context = context;
-            _mapper = mapper;
         }
         #endregion
 
