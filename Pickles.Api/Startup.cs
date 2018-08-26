@@ -21,6 +21,7 @@ namespace Pickles.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddAutoMapper(x => x.AddProfile<MappingProfile>());
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
@@ -47,6 +48,12 @@ namespace Pickles.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(builder =>
+                builder.AllowAnyOrigin()
+                       .AllowAnyHeader() 
+                       .WithMethods("GET", "POST") 
+            );
 
             app.UseMvc();
         }
