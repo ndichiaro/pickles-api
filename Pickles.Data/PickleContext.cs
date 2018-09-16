@@ -20,7 +20,8 @@ namespace Pickles.Data
                 new PickleType { Id = 2, Name = "Sweet" },
                 new PickleType { Id = 3, Name = "Bread and Butter" },
                 new PickleType { Id = 4, Name = "Sour" },
-                new PickleType { Id = 5, Name = "Other" }
+                new PickleType { Id = 5, Name = "Other" },
+                new PickleType { Id = 6, Name = "None" }
             );
         }
     }
