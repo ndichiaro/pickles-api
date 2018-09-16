@@ -10,6 +10,7 @@ namespace Pickles.Data
         { }
 
         public DbSet<PickleType> PickleTypes { get; set; }
+        public DbSet<PickleStyle> PickleStyles { get; set; }
         public DbSet<Vote> Votes { get; set; }
         public DbSet<Voter> Voters { get; set; }
 
