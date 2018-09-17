@@ -40,6 +40,13 @@ namespace Pickles.Api.Controllers
                 return BadRequest($"{vote.PickleTypeId} is not a valid pickle type.");
             }
 
+            // validate pickle style exists
+            var pickleStyle = _context.PickleStyles.FirstOrDefault(x => x.Id == vote.PickleStyleId);
+            if(pickleStyle == null)
+            {
+                return BadRequest($"{vote.PickleStyleId} is not a valid pickle style.");
+            }
+
             // check if the voter is already in the systems
             var voter = _context.Voters.FirstOrDefault(x => x.Email.Equals(vote.Email, StringComparison.InvariantCultureIgnoreCase));
             if(voter != null && !string.IsNullOrEmpty(vote.Email))
@@ -50,6 +57,7 @@ namespace Pickles.Api.Controllers
             var voteDbObj = new Vote
             {
                 PickleTypeId = vote.PickleTypeId,
+                PickleStyleId = vote.PickleStyleId
             };
 
             var voterDbObj = new Voter
@@ -91,13 +99,15 @@ namespace Pickles.Api.Controllers
             var votes = new List<VoteApiModel>();
             var votesData = _context.Votes
                                     .Include(x => x.Voter)
-                                    .Include(x => x.Type);
+                                    .Include(x => x.Type)
+                                    .Include(x => x.Style);
 
             foreach (var item in votesData)
             {
                 var vote = new VoteApiModel
                 {
                     PickleTypeId = item.Type.Id,
+                    PickleStyleId = item.Style.Id,
                     FirstName = item.Voter.FirstName,
                     LastName = item.Voter.LastName,
                     Email = item.Voter.Email,

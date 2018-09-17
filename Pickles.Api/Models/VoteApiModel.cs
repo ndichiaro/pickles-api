@@ -7,6 +7,8 @@ namespace Pickles.Api.Models
         [Required]
         public int PickleTypeId { get; set; }
         [Required]
+        public int PickleStyleId { get; set; }
+        [Required]
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
