@@ -37,7 +37,7 @@ namespace Pickles.Api.Controllers
         }
 
         /// <summary>
-        /// Gets a pickle type
+        /// Gets a specific pickle type by it's id
         /// </summary>
         /// <param name="id">the pickle type id</param>
         /// <returns>a pickle</returns>

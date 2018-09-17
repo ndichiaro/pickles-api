@@ -9,6 +9,7 @@ namespace Pickles.Api
         public MappingProfile()
         {
             CreateMap<PickleType, PickleTypeApiModel>();
+            CreateMap<PickleStyle, PickleStyleApiModel>();
         }
     }
 }
