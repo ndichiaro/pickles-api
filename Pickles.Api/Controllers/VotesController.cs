@@ -65,7 +65,7 @@ namespace Pickles.Api.Controllers
                 FirstName = vote.FirstName,
                 LastName = vote.LastName,
                 Email = vote.Email,
-                Latitute = vote.Latitute,
+                Latitute = vote.Latitude,
                 Longitude = vote.Longitude,
                 ZipCode = vote.ZipCode,
                 IpAddress = Request.HttpContext.Connection.RemoteIpAddress.ToString()
@@ -111,7 +111,7 @@ namespace Pickles.Api.Controllers
                     FirstName = item.Voter.FirstName,
                     LastName = item.Voter.LastName,
                     Email = item.Voter.Email,
-                    Latitute = item.Voter.Latitute,
+                    Latitude = item.Voter.Latitute,
                     Longitude = item.Voter.Longitude,
                     ZipCode = item.Voter.ZipCode
                 };

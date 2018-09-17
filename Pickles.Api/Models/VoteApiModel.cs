@@ -17,7 +17,7 @@ namespace Pickles.Api.Models
         [Required]
         [MaxLength(5)]
         public string ZipCode { get; set; }
-        public double? Latitute { get; set; }
+        public double? Latitude { get; set; }
         public double? Longitude { get; set; }
     }
 }
