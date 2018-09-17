@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Pickles.Data;
 
 namespace Pickles.Data.Migrations
 {
     [DbContext(typeof(PickleContext))]
-    partial class PickleContextModelSnapshot : ModelSnapshot
+    [Migration("20180917021846_AddPickleStyleSeedData")]
+    partial class AddPickleStyleSeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

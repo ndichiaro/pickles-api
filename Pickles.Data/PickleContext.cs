@@ -24,6 +24,18 @@ namespace Pickles.Data
                 new PickleType { Id = 5, Name = "Other" },
                 new PickleType { Id = 6, Name = "None" }
             );
+
+            modelBuilder.Entity<PickleStyle>().HasData(
+                new PickleStyle { Id = 1, Name = "Chips" },
+                new PickleStyle { Id = 2, Name = "Gherkins" },
+                new PickleStyle { Id = 3, Name = "Halves" },
+                new PickleStyle { Id = 4, Name = "Lengthwise Slices" },
+                new PickleStyle { Id = 5, Name = "Relish" },
+                new PickleStyle { Id = 6, Name = "Speats" },
+                new PickleStyle { Id = 7, Name = "Whole" },
+                new PickleType { Id = 8, Name = "Other" },
+                new PickleType { Id = 9, Name = "None" }
+            );
         }
     }
 }
