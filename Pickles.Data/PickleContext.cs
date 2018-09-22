@@ -31,7 +31,7 @@ namespace Pickles.Data
                 new PickleStyle { Id = 3, Name = "Halves" },
                 new PickleStyle { Id = 4, Name = "Lengthwise Slices" },
                 new PickleStyle { Id = 5, Name = "Relish" },
-                new PickleStyle { Id = 6, Name = "Speats" },
+                new PickleStyle { Id = 6, Name = "Spears" },
                 new PickleStyle { Id = 7, Name = "Whole" },
                 new PickleType { Id = 8, Name = "Other" },
                 new PickleType { Id = 9, Name = "None" }
